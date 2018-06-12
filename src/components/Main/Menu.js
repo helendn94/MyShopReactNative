@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import ProfileIcon from '../../media/temp/profile.png';
 
 class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLogedIn: true };
+    this.state = { isLogedIn: false };
   }
   gotoAuthentication() {
     const navigator = this.props.navigator;
@@ -25,7 +25,7 @@ class Menu extends Component {
     } = styles;
     const LogoutJSX = (
       <View style={{ flex: 1 }}>
-        <TouchableOpacity style={btnStyle}>
+        <TouchableOpacity style={btnStyle} onPress={this.gotoAuthentication.bind(this)}>
           <Text style={btnText}>Sign In</Text>
         </TouchableOpacity>
       </View>
@@ -36,10 +36,10 @@ class Menu extends Component {
         Hoang Nhi
         </Text>
         <View>
-            <TouchableOpacity style={btnSignInStyle}>
+            <TouchableOpacity style={btnSignInStyle} onPress={this.gotoOderHistory.bind(this)}>
                 <Text style={btnTextSignIn}>Oder History</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={btnSignInStyle}>
+            <TouchableOpacity style={btnSignInStyle} onPress={this.gotoChangeInfo.bind(this)}>
                 <Text style={btnTextSignIn}>Change Info</Text>
             </TouchableOpacity>
             <TouchableOpacity style={btnSignInStyle}>
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
   btnText: {
     color: '#34B089',
     fontSize: 20,
+    fontFamily: 'Avenir',
   },
   btnSignInStyle: {
     height: 50,
