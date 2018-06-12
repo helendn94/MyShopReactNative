@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import Collection from './Collection';
+import Category from './Category';
 
 class Home extends Component {
   render() {
     return (
-      <View style={{ backgroundColor: '#FFF666', flex: 1 }}>
-        <Text>Home Component</Text>
+      <View style={{ backgroundColor: '#BDBDBD', flex: 1 }}>
+        <Collection />
+        <Category />
       </View>
     );
   }
