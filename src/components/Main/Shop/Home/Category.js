@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Swiper from 'react-native-swiper';
-import { View, Text, Dimensions, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, Dimensions, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import Little from '../../../../media/temp/little.jpg';
 import Maxi from '../../../../media/temp/maxi.jpg';
 import Midi from '../../../../media/temp/midi.jpg';
@@ -11,30 +11,34 @@ import Party from '../../../../media/temp/party.jpg';
 const { width, height } = Dimensions.get('window');
 
 export default class Collection extends Component {
+  gotoListProduct() {
+    const { navigator } = this.props;
+    navigator.push({ name: 'LIST_PRODUCT' });
+  }
   render() {
     const { wrapper, textStyle, imageStyle, cateTitle } = styles;
     return (
       <View style={wrapper}>
-        <View style={{ flex: 1, justifyContent: 'center', paddingTop: 5 }}>
+        <View style={{ flex: 1, justifyContent: 'center', height: 50 }}>
             <Text style={textStyle}>LIST OF COLLECTION</Text>
         </View>
         <View style={{ flex: 3.5 }}>
           <Swiper showPagination width={imageWidth} height={imageHeight} >
-              <ImageBackground source={Little} style={imageStyle}>
-                <Text style={cateTitle}>Little Dress</Text>
-              </ImageBackground>
-              <ImageBackground source={Maxi} style={imageStyle}>
-                <Text style={cateTitle}>Maxi Dress</Text>
-              </ImageBackground>
-              <ImageBackground source={Midi} style={imageStyle}>
-                <Text style={cateTitle}>Midi Dress</Text>
-              </ImageBackground>
-              <ImageBackground source={Mini} style={imageStyle}>
-                <Text style={cateTitle}>Mini Dress</Text>
-              </ImageBackground>
-              <ImageBackground source={Party} style={imageStyle}>
-                <Text style={cateTitle}>Party Dress</Text>
-              </ImageBackground>
+              <TouchableOpacity onPress={this.gotoListProduct.bind(this)}>
+                  <ImageBackground source={Little} style={imageStyle}>
+                    <Text style={cateTitle}>Little Dress</Text>
+                  </ImageBackground>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                  <ImageBackground source={Maxi} style={imageStyle}>
+                    <Text style={cateTitle}>Maxi Dress</Text>
+                  </ImageBackground>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                  <ImageBackground source={Midi} style={imageStyle}>
+                    <Text style={cateTitle}>Midi Dress</Text>
+                  </ImageBackground>
+              </TouchableOpacity>
           </Swiper>
         </View>
       </View>
@@ -46,7 +50,7 @@ const imageWidth = width - 40;
 const imageHeight = imageWidth / 2;
 const styles = StyleSheet.create({
   wrapper: {
-    height: height * 0.35,
+    width: width - 20,
     backgroundColor: '#FFF',
     margin: 10,
     shadowColor: '#000',
