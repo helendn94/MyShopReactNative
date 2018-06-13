@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: '#34B089',
-    fontSize: 20,
+    fontSize: 15,
     fontFamily: 'Avenir',
   },
   btnSignInStyle: {
