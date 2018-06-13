@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import NavigationExperimental from 'react-native-deprecated-custom-components';
+import { Navigator } from 'react-native';
+import SearchView from './SearchView';
+import ProductDetail from '../ProductDetail/ProductDetail.js';
 
 class Search extends Component {
   render() {
     return (
-      <View style={{ backgroundColor: 'black', flex: 1 }}>
-        <Text>Search Component</Text>
-      </View>
+      <NavigationExperimental.Navigator
+        initialRoute={{ name: 'SEARCH_VIEW' }}
+        renderScene={(route, navigator) => {
+            switch (route.name) {
+              case 'SEARCH_VIEW': return <SearchView navigator={navigator} />;
+              default: return <ProductDetail navigator={navigator} />;
+            }
+        }}
+      />
     );
   }
 }
