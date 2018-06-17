@@ -45,16 +45,16 @@ class Shop extends Component {
               <Home />
             </TabNavigator.Item>
             <TabNavigator.Item
-              selected={this.state.selectedTab === 'contact'}
-              title="Contact"
-              onPress={() => this.setState({ selectedTab: 'contact' })}
-              renderIcon={() => <Image source={ContactIcon} style={iconStyle} />}
-              renderSelectedIcon={() => <Image source={ContactIconS} style={iconStyle} />}
-              badgeText="1"
+              selected={this.state.selectedTab === 'cart'}
+              title="Cart"
+              onPress={() => this.setState({ selectedTab: 'cart' })}
+              renderIcon={() => <Image source={CartIcon} style={iconStyle} />}
+              renderSelectedIcon={() => <Image source={CartIconS} style={iconStyle} />}
               selectedTitleStyle={{ color: '#34B089', fontFamily: 'Avenir' }}
             >
-              <Contact />
+              <Cart />
             </TabNavigator.Item>
+
             <TabNavigator.Item
               selected={this.state.selectedTab === 'search'}
               title="Search"
@@ -66,14 +66,15 @@ class Shop extends Component {
               <Search />
             </TabNavigator.Item>
             <TabNavigator.Item
-              selected={this.state.selectedTab === 'cart'}
-              title="Cart"
-              onPress={() => this.setState({ selectedTab: 'cart' })}
-              renderIcon={() => <Image source={CartIcon} style={iconStyle} />}
-              renderSelectedIcon={() => <Image source={CartIconS} style={iconStyle} />}
+              selected={this.state.selectedTab === 'contact'}
+              title="Contact"
+              onPress={() => this.setState({ selectedTab: 'contact' })}
+              renderIcon={() => <Image source={ContactIcon} style={iconStyle} />}
+              renderSelectedIcon={() => <Image source={ContactIconS} style={iconStyle} />}
+              badgeText="1"
               selectedTitleStyle={{ color: '#34B089', fontFamily: 'Avenir' }}
             >
-              <Cart />
+              <Contact />
             </TabNavigator.Item>
         </TabNavigator>
       </View>
